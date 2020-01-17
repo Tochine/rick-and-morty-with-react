@@ -15,9 +15,22 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.(pdf|jpg|png|gif|svg|ico|svg)$/,
+        use: [
+          {
+            loader: "url-loader"
+          }
+        ]
       }
     ]
   },
+
   plugins: [
     new htmlWebpackPlugin({
       template: "./src/index.html"
